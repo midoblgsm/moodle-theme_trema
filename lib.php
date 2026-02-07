@@ -118,6 +118,7 @@ function theme_trema_get_pre_scss($theme) {
         'Alegreya, serif' => 'Alegreya',
         '"CrimsonText", serif' => 'CrimsonText',
         '"EBGaramond", sans-serif' => 'EBGaramond',
+        'Inter, sans-serif' => 'Inter',
         'Lato, sans-serif' => 'Lato',
         'Montserrat, sans-serif' => 'Montserrat',
         '"NotoSans", sans-serif' => 'NotoSans',
@@ -248,7 +249,7 @@ function theme_trema_get_pre_scss($theme) {
     // ....
 
     // Softness: Rounding some corners.
-    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '.4rem' : '0') . ";\n";
+    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '0.5rem' : '0') . ";\n";
 
     // ....
     // Prepend pre-scss.

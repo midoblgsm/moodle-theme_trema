@@ -128,6 +128,7 @@ $fonts = [
     '"CrimsonText", serif' => 'CrimsonText',
     '"EBGaramond", sans-serif' => 'EBGaramond',
     'Georgia, serif' => 'Georgia',
+    'Inter, sans-serif' => 'Inter',
     'Lato, sans-serif' => 'Lato',
     'Montserrat, sans-serif' => 'Montserrat',
     '"NotoSans", sans-serif' => 'NotoSans',

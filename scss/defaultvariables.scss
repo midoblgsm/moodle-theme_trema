@@ -36,15 +36,15 @@ $light:         $gray-200 !default;
 $dark:          $gray-800 !default;
 
 // Options.
-$enable-rounded: false !default;
+$enable-rounded: true !default;
 
 // Body.
 $body-color: $gray-800 !default;
-$body-bg-color: $white !default;
+$body-bg-color: #f5f7fa !default;
 
 // Fonts.
 $font-size-base: 1rem !default;
-$headings-font-weight: 300 !default;
+$headings-font-weight: 600 !default;
 
 // Navbar.
 $navbar-dark-hover-color: rgba($white, 1) !default;
@@ -100,16 +100,16 @@ $editmodeon-bg-color: $secondary !default;
 $account-bg: rgba(255, 255, 255, 0.8) !default;
 $drawer-color: $body-color !default;
 
-$softness: 0 !default;
+$softness: 0.5rem !default;
 
 $h1: 2rem !default;
-$h2: 1.75rem !default;
-$h3: 1.40rem !default;
-$h4: 1.20rem !default;
-$h5: 1.1rem !default;
-$h6: 0.9rem !default;
+$h2: 1.625rem !default;
+$h3: 1.375rem !default;
+$h4: 1.125rem !default;
+$h5: 1rem !default;
+$h6: 0.875rem !default;
 
-$placeholder-color: #717171 !default;
+$placeholder-color: #595959 !default;
 
 $theme-colors: (
     primary: $primary,

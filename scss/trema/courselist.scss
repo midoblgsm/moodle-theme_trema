@@ -1,17 +1,18 @@
 #page .course-card-view {
-    box-shadow: 5px 5px 9px -4px rgba($black, .1);
+    box-shadow: 0 2px 8px rgba($black, .06), 0 1px 3px rgba($black, .04);
     padding: 0 0 4rem;
     min-width: 14rem;
     overflow: hidden;
     border: 1px solid $gray-100;
-    border-bottom: none;
-    transition: all .3s ease-in-out;
+    border-radius: $softness;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     &:hover {
-        box-shadow: 6px 6px 10px -4px rgba($black, .2);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba($black, .1), 0 4px 10px rgba($black, .06);
 
         .course-card-img div {
-            transform: scale(1.05, 1.05);
+            transform: scale(1.03);
         }
     }
 

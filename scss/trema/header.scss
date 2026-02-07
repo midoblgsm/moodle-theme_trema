@@ -247,8 +247,9 @@
     .dropdown-item:hover,
     .dropdown-item:focus,
     .dropdown-item:focus-within {
-        background-color: $primary;
-        color: choose-contrast-color($primary);
+        background-color: rgba($primary, 0.08);
+        color: darken($primary, 10%);
+        border-radius: 0.25rem;
     }
 
     .form-switch .form-check-input {
