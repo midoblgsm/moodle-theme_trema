@@ -1,0 +1,55 @@
+# Creates a release with a zip file of the theme when a tag is pushed.
+# The zip follows Moodle plugin packaging conventions:
+# - Root folder named "trema" (the plugin directory name)
+# - Excludes development files not needed for installation
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Get version info
+        id: version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          RELEASE=$(php -r "\$plugin = new stdClass(); require 'version.php'; echo \$plugin->release;")
+          VERSION=$(php -r "\$plugin = new stdClass(); require 'version.php'; echo \$plugin->version;")
+          echo "release=$RELEASE" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build release zip
+        run: |
+          mkdir -p /tmp/trema
+          rsync -a --exclude='.git' \
+                   --exclude='.github' \
+                   --exclude='.gitignore' \
+                   --exclude='.vscode' \
+                   --exclude='.idea' \
+                   --exclude='composer.lock' \
+                   --exclude='node_modules' \
+                   --exclude='.DS_Store' \
+                   --exclude='Thumbs.db' \
+                   ./ /tmp/trema/
+          cd /tmp
+          zip -r theme_trema.zip trema/
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "v${{ steps.version.outputs.release }} (${{ steps.version.outputs.version }})"
+          files: /tmp/theme_trema.zip
+          generate_release_notes: true
