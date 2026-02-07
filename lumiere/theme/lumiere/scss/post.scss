@@ -1,0 +1,81 @@
+// ============================================================
+// Theme Lumiere - Post SCSS
+// Final overrides loaded after all partials.
+// CSS custom properties for JavaScript/dynamic theming.
+// ============================================================
+
+// -----------------------------------------------
+// CSS Custom Properties (for dynamic theming)
+// -----------------------------------------------
+:root {
+    // Lumiere design tokens
+    --lumiere-bg: #{$gray-100};
+    --lumiere-fg: #{$gray-900};
+    --lumiere-card: #ffffff;
+    --lumiere-card-fg: #{$gray-900};
+    --lumiere-primary: #{$primary};
+    --lumiere-primary-fg: #ffffff;
+    --lumiere-secondary: #{$gray-200};
+    --lumiere-secondary-fg: #{$gray-900};
+    --lumiere-muted: #{$gray-200};
+    --lumiere-muted-fg: #{$gray-500};
+    --lumiere-accent: #{$gray-200};
+    --lumiere-accent-fg: #{$gray-900};
+    --lumiere-destructive: #{$danger};
+    --lumiere-border: #{$gray-300};
+    --lumiere-input: #{$gray-300};
+    --lumiere-ring: #{$primary};
+    --lumiere-radius: #{$border-radius};
+
+    // Chart colors
+    --lumiere-chart-1: #{$primary};
+    --lumiere-chart-2: #10b981;
+    --lumiere-chart-3: #334155;
+    --lumiere-chart-4: #d4a843;
+    --lumiere-chart-5: #e97a3b;
+
+    // Sidebar tokens
+    --lumiere-sidebar-bg: #ffffff;
+    --lumiere-sidebar-fg: #{$gray-900};
+    --lumiere-sidebar-primary: #{$primary};
+    --lumiere-sidebar-border: #{$gray-300};
+}
+
+// -----------------------------------------------
+// Smooth page transitions
+// -----------------------------------------------
+#page-content {
+    animation: lumiere-fadeIn 0.3s ease-out;
+}
+
+@keyframes lumiere-fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// -----------------------------------------------
+// Print styles
+// -----------------------------------------------
+@media print {
+    .navbar,
+    .drawer,
+    #page-footer,
+    .lumiere-welcome-banner {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+    }
+
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #dee2e6 !important;
+    }
+}

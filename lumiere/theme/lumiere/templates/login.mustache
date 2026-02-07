@@ -1,0 +1,179 @@
+{{!
+    @template theme_lumiere/login
+
+    Lumiere theme custom login page template.
+    Split-screen design with hero panel on left and login form on right.
+
+    Context variables required for this template:
+    * loginurl - URL for the login form action.
+    * logintoken - Login token.
+    * username - Username field value.
+    * canloginasguest - Whether guest login is available.
+    * canloginbyemail - Whether login by email is available.
+    * cansignup - Whether signup is available.
+    * signupurl - URL for signup.
+    * forgotpasswordurl - URL for forgot password.
+    * errorformatted - Formatted error message.
+    * error - Error message.
+    * identityproviders - List of identity providers.
+    * hasidentityproviders - Whether identity providers exist.
+    * instructions - Login instructions.
+    * loginheading - Custom heading for login page.
+    * loginsubheading - Custom subheading for login page.
+    * customlogin - Whether custom login layout is enabled.
+    * loginbgurl - URL for login background image.
+
+    Example context (json):
+    {
+        "loginurl": "/login/index.php",
+        "logintoken": "abc123",
+        "customlogin": true,
+        "loginheading": "Learn without limits.",
+        "loginsubheading": "Join thousands of students..."
+    }
+}}
+{{#customlogin}}
+<div class="lumiere-login-wrapper">
+    {{! Left Hero Panel }}
+    <div class="lumiere-login-hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fa fa-graduation-cap"></i>
+            </div>
+            <h1 class="hero-heading">{{{ loginheading }}}</h1>
+            <p class="hero-text">{{{ loginsubheading }}}</p>
+        </div>
+
+        {{! Background }}
+        <div class="hero-bg">
+            {{#loginbgurl}}
+                <img src="{{ loginbgurl }}" alt="" />
+            {{/loginbgurl}}
+        </div>
+    </div>
+
+    {{! Right Form Panel }}
+    <div class="lumiere-login-form">
+        <div class="login-form-inner">
+            {{! Mobile Logo }}
+            <div class="mobile-logo">
+                <i class="fa fa-graduation-cap"></i>
+            </div>
+
+            <h2 class="login-heading">{{#str}}welcomeback, theme_lumiere{{/str}}</h2>
+            <p class="login-subtitle">{{#str}}entercredientials, theme_lumiere{{/str}}</p>
+
+            {{#error}}
+                <div class="alert alert-danger" role="alert">
+                    {{{ error }}}
+                </div>
+            {{/error}}
+
+            {{#errorformatted}}
+                <div class="alert alert-danger" role="alert">
+                    {{{ errorformatted }}}
+                </div>
+            {{/errorformatted}}
+
+            <form action="{{ loginurl }}" method="post" id="login">
+                <input type="hidden" name="logintoken" value="{{ logintoken }}">
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">
+                        {{#canloginbyemail}}
+                            {{#str}}usernameemail{{/str}}
+                        {{/canloginbyemail}}
+                        {{^canloginbyemail}}
+                            {{#str}}username{{/str}}
+                        {{/canloginbyemail}}
+                    </label>
+                    <input type="text" name="username" id="username" class="form-control"
+                           value="{{ username }}"
+                           placeholder="{{#canloginbyemail}}alex@example.com{{/canloginbyemail}}{{^canloginbyemail}}{{#str}}username{{/str}}{{/canloginbyemail}}"
+                           autocomplete="username" autofocus>
+                </div>
+
+                <div class="mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                        <label for="password" class="form-label mb-0">{{#str}}password{{/str}}</label>
+                        <a href="{{ forgotpasswordurl }}" class="small text-decoration-none" style="font-size: 0.8125rem; font-weight: 500;">
+                            {{#str}}forgotpassword, theme_lumiere{{/str}}
+                        </a>
+                    </div>
+                    <input type="password" name="password" id="password" class="form-control"
+                           placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"
+                           autocomplete="current-password">
+                </div>
+
+                {{#rememberusername}}
+                <div class="mb-3 form-check">
+                    <input type="checkbox" name="rememberusername" id="rememberusername" class="form-check-input" value="1"
+                           {{#username}}checked{{/username}}>
+                    <label for="rememberusername" class="form-check-label small text-muted">
+                        {{#str}}rememberusername, admin{{/str}}
+                    </label>
+                </div>
+                {{/rememberusername}}
+
+                <div class="login-form-submit mb-3">
+                    <button type="submit" class="btn btn-primary w-100" id="loginbtn" style="height: 3rem; border-radius: 0.75rem; font-size: 1rem; font-weight: 600;">
+                        {{#str}}login{{/str}}
+                    </button>
+                </div>
+            </form>
+
+            {{#hasidentityproviders}}
+                <div class="login-divider text-center my-4">
+                    <span>{{#str}}orcontinuewith, theme_lumiere{{/str}}</span>
+                </div>
+
+                <div class="login-identityproviders">
+                    <div class="potentialidplist">
+                        {{#identityproviders}}
+                            <div class="potentialidp">
+                                <a href="{{ url }}" title="{{#str}}login_with, theme_lumiere, {{ name }}{{/str}}">
+                                    {{#iconurl}}
+                                        <img src="{{ iconurl }}" alt="" width="20" height="20">
+                                    {{/iconurl}}
+                                    {{ name }}
+                                </a>
+                            </div>
+                        {{/identityproviders}}
+                    </div>
+                </div>
+            {{/hasidentityproviders}}
+
+            {{#canloginasguest}}
+                <div class="mt-3">
+                    <form action="{{ loginurl }}" method="post" id="guestlogin">
+                        <input type="hidden" name="logintoken" value="{{ logintoken }}">
+                        <input type="hidden" name="username" value="guest">
+                        <input type="hidden" name="password" value="guest">
+                        <button type="submit" class="btn btn-outline-secondary w-100">
+                            {{#str}}loginguest{{/str}}
+                        </button>
+                    </form>
+                </div>
+            {{/canloginasguest}}
+
+            {{#cansignup}}
+                <p class="login-signup">
+                    {{#str}}donthaveanaccount, theme_lumiere{{/str}}
+                    <a href="{{ signupurl }}">{{#str}}startsignup{{/str}}</a>
+                </p>
+            {{/cansignup}}
+
+            {{#instructions}}
+                <div class="mt-4 p-3 rounded-lg" style="background-color: var(--lumiere-secondary, #f1f5f9);">
+                    <small class="text-muted">{{{ instructions }}}</small>
+                </div>
+            {{/instructions}}
+        </div>
+    </div>
+</div>
+{{/customlogin}}
+
+{{^customlogin}}
+    {{! Fall back to standard Boost login }}
+    {{> theme_boost/login }}
+{{/customlogin}}

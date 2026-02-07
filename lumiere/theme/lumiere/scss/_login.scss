@@ -1,0 +1,298 @@
+// ============================================================
+// Theme Lumiere - Login Page
+// Split-screen design with hero panel and form.
+// ============================================================
+
+// -----------------------------------------------
+// Custom Login Layout
+// -----------------------------------------------
+.lumiere-login-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: $gray-100;
+}
+
+// -----------------------------------------------
+// Left Hero Panel
+// -----------------------------------------------
+.lumiere-login-hero {
+    display: none;
+    width: 50%;
+    background-color: $primary;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+
+    @media (min-width: 992px) {
+        display: flex;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 28rem;
+        color: #ffffff;
+    }
+
+    .hero-icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: $border-radius;
+        background-color: rgba(#ffffff, 0.2);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        .fa, .icon {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+    }
+
+    .hero-heading {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.03em;
+    }
+
+    .hero-text {
+        font-size: 1.125rem;
+        color: rgba(#ffffff, 0.8);
+        line-height: 1.7;
+    }
+
+    // Background overlay
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, $primary, transparent);
+            opacity: 0.8;
+        }
+    }
+}
+
+// -----------------------------------------------
+// Right Form Panel
+// -----------------------------------------------
+.lumiere-login-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    @media (min-width: 992px) {
+        width: 50%;
+    }
+
+    .login-form-inner {
+        max-width: 28rem;
+        width: 100%;
+    }
+
+    // Mobile logo
+    .mobile-logo {
+        display: flex;
+        width: 3rem;
+        height: 3rem;
+        border-radius: $border-radius;
+        background-color: $primary;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+
+        @media (min-width: 992px) {
+            display: none;
+        }
+
+        .fa, .icon {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+    }
+
+    .login-heading {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        font-size: 1.875rem;
+        color: $gray-900;
+        margin-bottom: 0.5rem;
+
+        @media (max-width: 991px) {
+            text-align: center;
+        }
+    }
+
+    .login-subtitle {
+        color: $gray-500;
+        margin-bottom: 2rem;
+
+        @media (max-width: 991px) {
+            text-align: center;
+        }
+    }
+}
+
+// -----------------------------------------------
+// Login Form Overrides
+// -----------------------------------------------
+.lumiere-login-form {
+    #login {
+        .form-label,
+        label {
+            font-weight: 500;
+            font-size: $font-size-sm;
+            color: $gray-900;
+            margin-bottom: 0.375rem;
+        }
+
+        .form-control,
+        input[type="text"],
+        input[type="password"] {
+            height: 3rem;
+            border-radius: $border-radius;
+            background-color: rgba($gray-200, 0.5);
+            border: 1px solid transparent;
+            padding: 0.625rem 1rem;
+            font-size: $font-size-base;
+            transition: all 0.2s ease;
+
+            &:focus {
+                background-color: #ffffff;
+                border-color: rgba($primary, 0.3);
+                box-shadow: 0 0 0 3px rgba($primary, 0.1);
+            }
+        }
+
+        .login-form-submit .btn-primary {
+            width: 100%;
+            height: 3rem;
+            border-radius: $border-radius;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba($primary, 0.3);
+
+            &:hover {
+                box-shadow: 0 4px 8px rgba($primary, 0.3);
+            }
+        }
+
+        .login-form-forgotpassword {
+            a {
+                font-size: 0.8125rem;
+                font-weight: 500;
+                color: $primary;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    // Divider
+    .login-divider {
+        position: relative;
+        margin: 1.5rem 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: $gray-300;
+        }
+
+        span {
+            position: relative;
+            background-color: $gray-100;
+            padding: 0 0.75rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: $gray-500;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    // Identity providers (OAuth)
+    .login-identityproviders {
+        .potentialidplist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .potentialidp a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            height: 2.75rem;
+            border-radius: $border-radius;
+            border: 1px solid $gray-300;
+            background-color: transparent;
+            font-weight: 500;
+            font-size: $font-size-sm;
+            color: $gray-700;
+            transition: all 0.2s ease;
+            text-decoration: none;
+
+            &:hover {
+                background-color: $gray-100;
+                border-color: $gray-400;
+            }
+        }
+    }
+
+    // Signup link
+    .login-signup {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: $font-size-sm;
+        color: $gray-500;
+
+        a {
+            font-weight: 600;
+            color: $primary;
+        }
+    }
+}
+
+// -----------------------------------------------
+// Standard Login Page (fallback when custom is off)
+// -----------------------------------------------
+body#page-login-index {
+    background-color: $gray-100;
+
+    .card.login-card {
+        border: none;
+        border-radius: $border-radius-lg;
+        box-shadow: $box-shadow-lg;
+        max-width: 28rem;
+        margin: 0 auto;
+    }
+}

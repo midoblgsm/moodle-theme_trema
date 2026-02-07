@@ -1,0 +1,38 @@
+{{!
+    @template theme_lumiere/dashboard_banner
+
+    Lumiere dashboard welcome banner.
+    Rendered at the top of the dashboard page.
+
+    Context variables required for this template:
+    * showbanner - Whether to display the banner.
+    * welcomemessage - The welcome message (with user name).
+    * subtitle - The banner subtitle text.
+    * mycourses_url - URL to the user's courses page.
+
+    Example context (json):
+    {
+        "showbanner": true,
+        "welcomemessage": "Welcome back, Alex!",
+        "subtitle": "Keep up the momentum with your learning journey!",
+        "mycourses_url": "/my/courses.php"
+    }
+}}
+{{#showbanner}}
+<div class="lumiere-welcome-banner mb-4">
+    <div class="welcome-content">
+        <h1 class="welcome-heading">{{ welcomemessage }}</h1>
+        <p class="welcome-subtitle">{{ subtitle }}</p>
+        <a href="{{ mycourses_url }}" class="welcome-cta">
+            {{#str}}continuelearning, theme_lumiere{{/str}}
+            <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="welcome-bg-shape">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#FFFFFF" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.5,70.6,31.7C59,41.9,47.1,49.5,35.4,56.8C23.7,64.1,12.2,71.1,-0.9,72.7C-14,74.3,-29.5,70.5,-42.6,63.6C-55.7,56.7,-66.4,46.7,-74.6,34.5C-82.8,22.3,-88.5,7.9,-86.2,-5.4C-83.9,-18.7,-73.6,-30.9,-62.3,-40.3C-51,-49.7,-38.7,-56.3,-26.1,-64.8C-13.5,-73.3,-0.6,-83.7,13.2,-84.9C27,-86.1,44.7,-76.4,44.7,-76.4Z" transform="translate(100 100)" />
+        </svg>
+    </div>
+</div>
+{{/showbanner}}

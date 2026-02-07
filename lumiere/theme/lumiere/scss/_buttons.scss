@@ -1,0 +1,147 @@
+// ============================================================
+// Theme Lumiere - Buttons
+// Rounded, weighted buttons with smooth transitions.
+// ============================================================
+
+.btn {
+    font-weight: 500;
+    font-size: $btn-font-size;
+    border-radius: $border-radius;
+    padding: $btn-padding-y $btn-padding-x;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
+    border: none;
+    box-shadow: none;
+
+    &:focus,
+    &:focus-visible {
+        box-shadow: 0 0 0 3px rgba($primary, 0.2);
+        outline: none;
+    }
+}
+
+.btn-primary {
+    background-color: $primary;
+    color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba($primary, 0.3);
+
+    &:hover,
+    &:focus {
+        background-color: darken($primary, 8%);
+        box-shadow: 0 4px 6px -1px rgba($primary, 0.3);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px 0 rgba($primary, 0.3);
+    }
+}
+
+.btn-secondary {
+    background-color: $gray-200;
+    color: $gray-900;
+
+    &:hover,
+    &:focus {
+        background-color: $gray-300;
+        color: $gray-900;
+    }
+}
+
+.btn-outline-primary {
+    color: $primary;
+    border: 1px solid $gray-300;
+    background-color: transparent;
+
+    &:hover {
+        background-color: rgba($primary, 0.05);
+        border-color: $primary;
+        color: $primary;
+    }
+}
+
+.btn-outline-secondary {
+    color: $gray-600;
+    border: 1px solid $gray-300;
+    background-color: transparent;
+
+    &:hover {
+        background-color: $gray-100;
+        color: $gray-900;
+    }
+}
+
+// Danger / Destructive
+.btn-danger {
+    background-color: $danger;
+    color: #ffffff;
+
+    &:hover {
+        background-color: darken($danger, 8%);
+    }
+}
+
+// Link-style button
+.btn-link {
+    color: $primary;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($primary, 10%);
+        text-decoration: underline;
+    }
+}
+
+// Ghost / icon buttons
+.btn-icon,
+.btn-ghost {
+    background: transparent;
+    color: $gray-500;
+    border: none;
+    border-radius: $border-radius;
+
+    &:hover {
+        background-color: $gray-200;
+        color: $gray-900;
+    }
+}
+
+// Pill-shaped buttons (used in course filters, tags)
+.btn-pill {
+    border-radius: $border-radius-pill;
+    padding: 0.375rem 1rem;
+}
+
+// Smaller buttons
+.btn-sm {
+    font-size: 0.8125rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: $border-radius-sm;
+}
+
+// Large buttons
+.btn-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: $border-radius-lg;
+}
+
+// Action menu button (three dots)
+.action-menu-trigger .btn {
+    border-radius: $border-radius;
+    color: $gray-500;
+
+    &:hover {
+        background-color: $gray-200;
+        color: $gray-900;
+    }
+}
+
+// Edit mode toggle button
+#page-header .btn[data-toggle="editswitch"],
+.editswitch .btn {
+    border-radius: $border-radius-pill;
+    font-weight: 500;
+}

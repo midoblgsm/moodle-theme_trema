@@ -1,0 +1,41 @@
+// ============================================================
+// Theme Lumiere - Footer
+// Clean, minimal footer.
+// ============================================================
+
+#page-footer,
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid $gray-300;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    font-size: $font-size-sm;
+    color: $gray-500;
+
+    a {
+        color: $gray-600;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+
+    .logininfo {
+        font-size: $font-size-sm;
+    }
+
+    .footnote {
+        color: $gray-500;
+        font-size: $font-size-sm;
+        margin-top: 0.5rem;
+    }
+}
+
+// Moodle footer links
+.footer-content-debugging,
+.footer-content-popover {
+    font-size: 0.75rem;
+}

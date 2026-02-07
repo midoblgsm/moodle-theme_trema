@@ -1,0 +1,62 @@
+{{!
+    @template theme_lumiere/navbar
+
+    Lumiere theme navbar override.
+    Extends Boost navbar with Lumiere branding and styling.
+
+    Context variables required for this template:
+    * sitename - The site name.
+    * output - The core_renderer for the page.
+    * primarymoremenu - Primary navigation more menu.
+    * usermenuitems - User menu items.
+    * langmenu - Language menu.
+    * mobileprimarynav - Mobile primary navigation.
+
+    Example context (json):
+    {
+        "sitename": "Lumiere LMS",
+        "output": {}
+    }
+}}
+<nav class="navbar fixed-top navbar-light navbar-expand" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+    <div class="container-fluid">
+        {{! Site branding }}
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand d-flex align-items-center gap-2">
+            {{#output.should_display_navbar_logo}}
+                <img src="{{output.get_compact_logo_url}}" class="logo" alt="{{sitename}}">
+            {{/output.should_display_navbar_logo}}
+            {{^output.should_display_navbar_logo}}
+                <span class="d-inline-flex align-items-center justify-content-center rounded-lg"
+                      style="width: 2rem; height: 2rem; background-color: var(--lumiere-primary, #2563eb);">
+                    <i class="fa fa-graduation-cap text-white" style="font-size: 1.125rem;"></i>
+                </span>
+            {{/output.should_display_navbar_logo}}
+            <span class="site-name d-none d-md-inline">{{sitename}}</span>
+        </a>
+
+        {{! Mobile toggle }}
+        <button class="btn btn-ghost d-md-none" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+        </button>
+
+        {{! Primary navigation }}
+        <div class="d-none d-md-flex flex-grow-1">
+            {{{ primarymoremenu }}}
+        </div>
+
+        {{! Search bar }}
+        <div class="d-none d-md-flex align-items-center mx-3" style="max-width: 20rem; flex: 1;">
+            {{{ output.search_box }}}
+        </div>
+
+        {{! Right side: notifications, messages, user menu }}
+        <div class="d-flex align-items-center gap-2">
+            {{#output.navbar_plugin_output}}
+                {{{ output.navbar_plugin_output }}}
+            {{/output.navbar_plugin_output}}
+            {{{ langmenu }}}
+            {{{ usermenu }}}
+        </div>
+    </div>
+</nav>

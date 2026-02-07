@@ -1,0 +1,9 @@
+// ============================================================
+// Theme Lumiere - Default Preset
+// Imports Boost's default preset as the base.
+// Variable overrides are handled via pre-SCSS callback.
+// ============================================================
+
+// Import the entire Boost default preset.
+// This includes Bootstrap + Moodle core SCSS.
+@import "../../boost/scss/preset/default.scss";

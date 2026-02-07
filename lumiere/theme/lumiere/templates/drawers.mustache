@@ -1,0 +1,33 @@
+{{!
+    @template theme_lumiere/drawers
+
+    Lumiere drawers layout template.
+    Main layout with navigation drawers for the Lumiere theme.
+
+    Context variables required for this template:
+    * sitename - The name of the site.
+    * output - The core_renderer for the page.
+    * bodyattributes - Body tag attributes.
+    * sidepreblocks - HTML for the blocks.
+    * hasblocks - True if there are blocks to show.
+    * regionmainsettingsmenu - HTML for the main region settings menu.
+    * hasregionmainsettingsmenu - True if there is a region main settings menu.
+    * addblockbutton - HTML for the add block button.
+    * courseindexopen - True if the course index should be open.
+    * courseindex - HTML for the course index.
+    * hasnavdrawer - True if there is a nav drawer.
+    * navdrawer - HTML for the nav drawer.
+    * primarymoremenu - HTML for the primary more menu.
+    * secondarymoremenu - HTML for the secondary more menu.
+    * headercontent - HTML for the page header content.
+
+    Example context (json):
+    {
+        "sitename": "Lumiere LMS",
+        "output": {},
+        "bodyattributes": "",
+        "sidepreblocks": "<div>Blocks</div>",
+        "hasblocks": true
+    }
+}}
+{{> theme_boost/drawers}}

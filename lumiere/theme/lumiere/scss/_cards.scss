@@ -1,0 +1,187 @@
+// ============================================================
+// Theme Lumiere - Cards
+// Soft white cards with subtle shadows and hover effects.
+// ============================================================
+
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-sm;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: $box-shadow;
+    }
+
+    .card-header {
+        background-color: transparent;
+        border-bottom: 1px solid $gray-200;
+        padding: $card-spacer-y $card-spacer-x;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+    }
+
+    .card-title {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .card-body {
+        padding: $card-spacer-y $card-spacer-x;
+    }
+
+    .card-footer {
+        background-color: transparent;
+        border-top: 1px solid $gray-200;
+        padding: 0.875rem $card-spacer-x;
+    }
+}
+
+// -----------------------------------------------
+// Course Cards
+// -----------------------------------------------
+.coursebox {
+    border: none;
+    border-radius: $border-radius-lg;
+    background-color: #ffffff;
+    box-shadow: $box-shadow-sm;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: $box-shadow-lg;
+        transform: translateY(-2px);
+    }
+
+    .info {
+        padding: 1.25rem;
+    }
+
+    .coursename a {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: $gray-900;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+
+    .teachers,
+    .course-description {
+        color: $gray-500;
+        font-size: $font-size-sm;
+    }
+}
+
+// Course card images
+.courseimage {
+    border-radius: $border-radius-lg $border-radius-lg 0 0;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.05);
+    }
+}
+
+// -----------------------------------------------
+// Dashboard Course Overview Cards
+// -----------------------------------------------
+.dashboard-card {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-sm;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: $box-shadow-lg;
+        transform: translateY(-2px);
+    }
+
+    .dashboard-card-img {
+        height: 8rem;
+        object-fit: cover;
+    }
+
+    .dashboard-card-deck .dashboard-card-footer {
+        border-top: 1px solid $gray-200;
+    }
+
+    .course-info-container {
+        padding: 1rem 1.25rem;
+    }
+
+    .coursename {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        color: $gray-900;
+    }
+}
+
+// -----------------------------------------------
+// Block Cards (Sidebar blocks)
+// -----------------------------------------------
+.block {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-sm;
+    background-color: #ffffff;
+    margin-bottom: 1rem;
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+}
+
+// -----------------------------------------------
+// Activity Cards
+// -----------------------------------------------
+.activity-item {
+    border-radius: $border-radius;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.25rem;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: $gray-100;
+    }
+
+    .activityname a {
+        font-weight: 500;
+        color: $gray-900;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .activity-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: $border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
