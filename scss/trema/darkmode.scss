@@ -1,0 +1,327 @@
+// ============================================================
+// Dark mode support — automatic via prefers-color-scheme.
+//
+// This applies a dark palette when the user's OS/browser is in
+// dark mode. All colors are derived from the theme's existing
+// variables to keep consistency.
+// ============================================================
+
+@media (prefers-color-scheme: dark) {
+    // Dark palette tokens.
+    $dm-bg: #1a1d23;
+    $dm-surface: #22262e;
+    $dm-surface-raised: #2a2f38;
+    $dm-border: #363c47;
+    $dm-text: #e0e3e8;
+    $dm-text-muted: #9ba3af;
+
+    body {
+        background-color: $dm-bg;
+        color: $dm-text;
+    }
+
+    // Cards & surfaces.
+    .card:not(.fp-navbar),
+    body #page #region-main,
+    body #page #page-content #region-main-box #region-main,
+    body.pagelayout-course .course-content li.section,
+    body:not(#page-course-view-weeks, #page-course-view-topics, #page-course-view-remuiformat) .course-content {
+        background-color: $dm-surface;
+        color: $dm-text;
+        border-color: $dm-border;
+    }
+
+    .card:not(.fp-navbar) {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    // Page header card.
+    body #page #page-header .card {
+        background-color: $dm-surface;
+        color: $dm-text;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    // Breadcrumbs.
+    body #page #page-header .breadcrumb,
+    body #page #page-header .breadcrumb a,
+    body #page #page-header .breadcrumb::before {
+        color: $dm-text-muted;
+    }
+
+    // Headings.
+    body #page h1:not([class^="display-"]),
+    body #page .h1,
+    body #page .page-header-headings h1.h2,
+    body #page h2:not([class^="display-"]),
+    body #page .h2,
+    body #page h3,
+    body #page .h3,
+    body #page h4,
+    body #page .h4,
+    body #page h5,
+    body #page .h5,
+    body #page h6,
+    body #page .h6 {
+        color: $dm-text;
+    }
+
+    // Links.
+    body #page a:not(.dropdown-item, .btn) {
+        color: lighten($primary, 20%);
+    }
+    body #page a:not(.dropdown-item, .btn):hover {
+        color: lighten($primary, 30%);
+    }
+
+    // Navbar.
+    #page-wrapper .navbar {
+        background-color: $dm-surface !important;
+        border-bottom-color: $dm-border;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+        &.navbar-light .navbar-nav .nav-link,
+        &.navbar-light .navbar-nav .nav-link:hover,
+        &.navbar-light .navbar-nav .nav-link:focus {
+            color: $dm-text;
+        }
+
+        .site-name,
+        .navbar-brand {
+            color: $dm-text !important;
+        }
+
+        &.navbar-light.bg-white {
+            background-color: $dm-surface !important;
+        }
+    }
+
+    // Dropdowns.
+    body .dropdown-menu {
+        background-color: $dm-surface-raised;
+        border-color: $dm-border;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    body #page .dropdown-item {
+        color: $dm-text;
+    }
+    body #page .dropdown-item:hover,
+    body #page .dropdown-item:focus {
+        background-color: rgba($primary, 0.12);
+        color: lighten($primary, 20%) !important;
+    }
+    body #page .dropdown-item.active,
+    body #page .dropdown-item:active {
+        background-color: $primary;
+        color: choose-contrast-color($primary);
+    }
+
+    // Drawers.
+    .drawer {
+        background-color: darken($dm-bg, 3%);
+    }
+
+    // Secondary navigation.
+    #page .secondary-navigation .navigation .nav-link {
+        color: $dm-text-muted;
+        &.active {
+            color: $dm-text;
+            background-color: rgba($primary, 0.12);
+        }
+        &:hover:not(.active) {
+            background-color: rgba($primary, 0.08);
+        }
+    }
+
+    // Forms.
+    body #page form input[type="text"],
+    body #page form input[type="password"],
+    body #page form input[type="email"],
+    body #page form select,
+    body #page form textarea,
+    .form-control,
+    .custom-select {
+        background-color: $dm-surface-raised;
+        border-color: $dm-border;
+        color: $dm-text;
+
+        &:focus {
+            background-color: $dm-surface-raised;
+            border-color: $primary;
+            color: $dm-text;
+        }
+    }
+
+    ::placeholder {
+        color: $dm-text-muted !important;
+    }
+
+    // Buttons.
+    body #page .btn.btn-secondary,
+    body #page input[type="submit"].btn-secondary,
+    body #page input[type="reset"].btn-secondary,
+    body #page input[type="button"].btn-secondary,
+    body #page button.btn-secondary {
+        background-color: $dm-surface-raised;
+        border-color: $dm-border;
+        color: $dm-text;
+
+        &:hover {
+            background-color: lighten($dm-surface-raised, 5%);
+            border-color: lighten($dm-border, 10%);
+            color: $dm-text;
+        }
+    }
+
+    // Generic input buttons (non-classed).
+    body #page input[type="submit"],
+    body #page input[type="reset"],
+    body #page input[type="button"] {
+        background-color: $dm-surface-raised;
+        color: $dm-text;
+
+        &:hover:not([data-for="sectiontoggler"]) {
+            background-color: lighten($dm-surface-raised, 8%);
+            color: $dm-text;
+        }
+    }
+
+    // Btn-link.
+    body #page .btn-link:not(.activity-add, .activity-icon) {
+        color: lighten($primary, 20%);
+    }
+
+    // Alerts.
+    body #page [class*="alert-"] {
+        color: $dm-text;
+    }
+
+    // Tables.
+    .table, .table td, .table th {
+        color: $dm-text;
+        border-color: $dm-border;
+    }
+
+    // Footer.
+    #page.drawers footer#page-footer,
+    footer#page-footer {
+        background-color: darken($dm-bg, 2%);
+    }
+
+    // Frontpage specifics.
+    body#page-site-index {
+        #page-content #region-main,
+        #frontpage-cards {
+            background-color: $dm-surface;
+        }
+        #frontpage-cards #frontpage-cards-content .frontpage-card {
+            border-color: $dm-border;
+            &:hover {
+                background-color: rgba($primary, 0.05);
+            }
+        }
+    }
+
+    // Course cards.
+    .courses .card {
+        background-color: $dm-surface;
+    }
+
+    #page .course-card-view {
+        background-color: $dm-surface;
+        border-color: $dm-border;
+    }
+
+    // Border-frequency surfaces.
+    %border-frequency,
+    .border-trema {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    // Dashboard.
+    body.pagelayout-mydashboard .dashboard-card {
+        background-color: $dm-surface;
+    }
+
+    // Login page.
+    body#page-login-index {
+        #region-main {
+            background-color: $dm-surface;
+        }
+        .card {
+            background-color: $dm-surface;
+        }
+        .loginform h1.login-heading {
+            color: $dm-text;
+        }
+    }
+
+    // Modals.
+    .modal-content {
+        background-color: $dm-surface;
+        color: $dm-text;
+        border-color: $dm-border;
+    }
+
+    // Tabs.
+    body #page ul.nav-tabs li.nav-item {
+        border-bottom-color: $dm-border;
+        a.nav-link {
+            color: $dm-text-muted;
+            &.active {
+                color: $dm-text;
+                border-bottom-color: $primary;
+            }
+            &:hover {
+                background-color: rgba($primary, 0.05);
+                border-bottom-color: $dm-text-muted;
+            }
+        }
+    }
+
+    // Misc elements.
+    body #page code {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: $dm-border;
+        color: lighten($primary, 25%);
+    }
+
+    body #page blockquote {
+        border-left-color: $dm-border;
+    }
+
+    // User menu dropdown background fix.
+    #page-wrapper .navbar .usermenu .dropdown-menu #usermenu-carousel {
+        background: $dm-surface-raised;
+        border-color: $dm-border;
+    }
+
+    // Edit mode bar.
+    body #page .editmode-switch-form,
+    body #page .editmode-switch-form .text-primary {
+        color: $dm-text !important;
+    }
+
+    // Back-to-top button in dark mode.
+    #goto-top-link .btn {
+        background-color: $dm-surface-raised;
+        color: $dm-text;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    // Scrollbar styling for drawers.
+    .drawercontent::-webkit-scrollbar-thumb {
+        background-color: $dm-border;
+        border-color: $dm-surface;
+    }
+    .drawercontent::-webkit-scrollbar-track {
+        background: $dm-bg;
+    }
+
+    // Focus rings in dark mode — brighter.
+    *:focus-visible {
+        outline-color: lighten($primary, 15%);
+        box-shadow: 0 0 0 4px rgba(lighten($primary, 15%), 0.2);
+    }
+}

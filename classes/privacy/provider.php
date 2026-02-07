@@ -41,7 +41,6 @@ class provider implements
     \core_privacy\local\metadata\provider,
     // This plugin has some sitewide user preferences to export.
     \core_privacy\local\request\user_preference_provider {
-
     /** The user preferences for the course index. */
     const DRAWER_OPEN_INDEX = 'drawer-open-index';
 
@@ -69,9 +68,9 @@ class provider implements
         $draweropenindexpref = get_user_preferences(self::DRAWER_OPEN_INDEX, null, $userid);
 
         if (isset($draweropenindexpref)) {
-            $preferencestring = get_string('privacy:drawerindexclosed', 'theme_boost');
+            $preferencestring = get_string('privacy:drawerindexclosed', 'theme_trema');
             if ($draweropenindexpref == 1) {
-                $preferencestring = get_string('privacy:drawerindexopen', 'theme_boost');
+                $preferencestring = get_string('privacy:drawerindexopen', 'theme_trema');
             }
             \core_privacy\local\request\writer::export_user_preference(
                 'theme_trema',
@@ -84,9 +83,9 @@ class provider implements
         $draweropenblockpref = get_user_preferences(self::DRAWER_OPEN_BLOCK, null, $userid);
 
         if (isset($draweropenblockpref)) {
-            $preferencestring = get_string('privacy:drawerblockclosed', 'theme_boost');
+            $preferencestring = get_string('privacy:drawerblockclosed', 'theme_trema');
             if ($draweropenblockpref == 1) {
-                $preferencestring = get_string('privacy:drawerblockopen', 'theme_boost');
+                $preferencestring = get_string('privacy:drawerblockopen', 'theme_trema');
             }
             \core_privacy\local\request\writer::export_user_preference(
                 'theme_trema',

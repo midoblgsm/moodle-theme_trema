@@ -74,6 +74,18 @@ $string['coursescards'] = 'Courses cards';
 $string['custommenualignment'] = 'Primary navigation alignment';
 $string['custommenualignment_desc'] = 'Choose whether you want the main menu at the top of the page to be aligned to the left, middle or to the right.';
 $string['dark'] = 'Dark';
+$string['dashboardbox1'] = 'Dashboard Box 1';
+$string['dashboardbox1_desc'] = 'Select which box to display in the first position of the admin dashboard';
+$string['dashboardbox2'] = 'Dashboard Box 2';
+$string['dashboardbox2_desc'] = 'Select which box to display in the second position of the admin dashboard';
+$string['dashboardbox3'] = 'Dashboard Box 3';
+$string['dashboardbox3_desc'] = 'Select which box to display in the third position of the admin dashboard';
+$string['dashboardbox4'] = 'Dashboard Box 4';
+$string['dashboardbox4_desc'] = 'Select which box to display in the fourth position of the admin dashboard';
+$string['dashbox_courses'] = 'Courses';
+$string['dashbox_diskusage'] = 'Disk Usage';
+$string['dashbox_enrolments'] = 'Enrolments';
+$string['dashbox_security'] = 'Security';
 $string['defaultfooter'] = 'Footer';
 $string['defaultfooter_default'] = '<div class="row">
   <div class="col-md-4 col-sm-6 col-12">
@@ -108,23 +120,6 @@ $string['defaultfooter_desc'] = 'Default content from footer';
 $string['defaultfrontpagebody'] = 'Frontpage Body';
 $string['defaultfrontpagebody_desc'] = 'Default content from frontpage body';
 $string['diskusage'] = 'Data storage space';
-
-// Dashboard box settings.
-$string['dashboardbox1'] = 'Dashboard Box 1';
-$string['dashboardbox1_desc'] = 'Select which box to display in the first position of the admin dashboard';
-$string['dashboardbox2'] = 'Dashboard Box 2';
-$string['dashboardbox2_desc'] = 'Select which box to display in the second position of the admin dashboard';
-$string['dashboardbox3'] = 'Dashboard Box 3';
-$string['dashboardbox3_desc'] = 'Select which box to display in the third position of the admin dashboard';
-$string['dashboardbox4'] = 'Dashboard Box 4';
-$string['dashboardbox4_desc'] = 'Select which box to display in the fourth position of the admin dashboard';
-
-// Dashboard box names.
-$string['dashbox_diskusage'] = 'Disk Usage';
-$string['dashbox_courses'] = 'Courses';
-$string['dashbox_enrolments'] = 'Enrolments';
-$string['dashbox_security'] = 'Security';
-
 $string['drawerbgcolor'] = 'Drawer Background Color';
 $string['drawerbgcolor_desc']  = 'The background color of the drawers.';
 $string['enableadmindashboard'] = 'Admin Dashboard';
@@ -211,7 +206,13 @@ $string['pluginname'] = 'Trema';
 $string['popover'] = 'Popover';
 $string['primarycolor'] = 'Brand colour';
 $string['primarycolor_desc'] = 'The main colour.';
+$string['privacy:drawerblockclosed'] = 'The current preference for the block drawer is closed.';
+$string['privacy:drawerblockopen'] = 'The current preference for the block drawer is open.';
+$string['privacy:drawerindexclosed'] = 'The current preference for the index drawer is closed.';
+$string['privacy:drawerindexopen'] = 'The current preference for the index drawer is open.';
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
+$string['privacy:metadata:preference:draweropenblock'] = 'The user preference for hiding or showing the block drawer.';
+$string['privacy:metadata:preference:draweropenindex'] = 'The user preference for hiding or showing the course index drawer.';
 $string['region-side-admin'] = 'Only admins';
 $string['rememberusername'] = 'Remember user';
 $string['samebasecolor'] = 'Same as background color';
