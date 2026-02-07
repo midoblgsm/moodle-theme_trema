@@ -38,9 +38,6 @@ function theme_trema_get_pre_scss($theme) {
 
     $scss = '';
 
-    // Load Outfit font from Google Fonts (used for headings in Lumiere design).
-    $scss .= "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');\n";
-
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/defaultvariables.scss");
 
     $configurable = [
@@ -364,6 +361,12 @@ function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $force
  */
 function theme_trema_page_init(moodle_page $page) {
     global $COURSE, $USER;
+
+    // Load Outfit font from Google Fonts (used for headings in Lumiere design).
+    $page->requires->css(new moodle_url('https://fonts.googleapis.com/css2', [
+        'family' => 'Outfit:wght@400;500;600;700;800',
+        'display' => 'swap',
+    ]));
 
     // Add admin classes.
     $page->add_body_class(is_siteadmin() ? "is_siteadmin" : "not_siteadmin");
