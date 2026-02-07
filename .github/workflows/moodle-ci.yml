@@ -153,6 +153,8 @@ jobs:
         env:
           DB: ${{ matrix.database }}
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
+          IGNORE_PATHS: 'lumiere'
+          CODECHECKER_IGNORE_PATHS: 'lumiere'
           # Uncomment this to run Behat tests using the Moodle App.
           # MOODLE_APP: 'true'
 

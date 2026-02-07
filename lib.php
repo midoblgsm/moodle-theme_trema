@@ -120,6 +120,7 @@ function theme_trema_get_pre_scss($theme) {
         '"EBGaramond", sans-serif' => 'EBGaramond',
         'Inter, sans-serif' => 'Inter',
         'Lato, sans-serif' => 'Lato',
+        '"Outfit", sans-serif' => 'Outfit',
         'Montserrat, sans-serif' => 'Montserrat',
         '"NotoSans", sans-serif' => 'NotoSans',
         '"OpenSans", sans-serif' => 'OpenSans',
@@ -248,8 +249,8 @@ function theme_trema_get_pre_scss($theme) {
     // Other settings.
     // ....
 
-    // Softness: Rounding some corners.
-    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '0.5rem' : '0') . ";\n";
+    // Softness: Rounding some corners (Lumiere uses 0.75rem).
+    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '0.75rem' : '0') . ";\n";
 
     // ....
     // Prepend pre-scss.
@@ -360,6 +361,12 @@ function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $force
  */
 function theme_trema_page_init(moodle_page $page) {
     global $COURSE, $USER;
+
+    // Load Outfit font from Google Fonts (used for headings in Lumiere design).
+    $page->requires->css(new moodle_url('https://fonts.googleapis.com/css2', [
+        'family' => 'Outfit:wght@400;500;600;700;800',
+        'display' => 'swap',
+    ]));
 
     // Add admin classes.
     $page->add_body_class(is_siteadmin() ? "is_siteadmin" : "not_siteadmin");
