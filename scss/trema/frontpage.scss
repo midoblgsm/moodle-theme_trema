@@ -14,11 +14,6 @@ body#page-site-index {
             width: 100%;
             padding: 0;
 
-            &:before {
-                height: 1rem;
-                top: -1rem;
-            }
-
             li.nav-item {
                 border-bottom: none;
             }
@@ -33,14 +28,12 @@ body#page-site-index {
         margin-top: 3rem;
         padding: 0;
         @extend %border-frequency;
-        &:after {
-            height: 2px;
-        }
 
         #region-main {
             width: 100%;
-            padding: 2rem 3rem;
+            padding: 2.5rem 3rem;
             background: $white;
+            border-radius: $softness;
         }
     }
 
@@ -132,26 +125,12 @@ body#page-site-index {
         background: $white;
         @extend %border-frequency;
 
-        &:after {
-            height: 2px;
-        }
-
         &:target {
             padding-top: 2rem;
             margin-top: 3rem;
-
-            &:before {
-                margin-top: 0;
-            }
         }
 
         #frontpage-cards-title {
-
-            &:before {
-                height: 3rem;
-                top: -3rem;
-            }
-
             h2 {
                 display: inline-block;
             }
@@ -160,13 +139,18 @@ body#page-site-index {
         #frontpage-cards-content {
 
             .frontpage-card {
-                padding: 6rem 7rem 4rem;
-                border-top: 1px solid $gray-300;
-                border-bottom: 1px solid $gray-300;
+                padding: 3rem 2.5rem 2.5rem;
+                border-top: 1px solid $gray-200;
+                border-bottom: 1px solid $gray-200;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: rgba($primary, 0.02);
+                }
             }
 
             .frontpage-card:nth-child(odd) {
-                border-right: 1px solid $gray-300;
+                border-right: 1px solid $gray-200;
             }
 
             a:hover {
@@ -208,9 +192,17 @@ body#page-site-index {
 .courses {
     .card {
         background-color: $coursecards-bg-color;
-        box-shadow: 5px 5px 9px -4px rgba($primary, .1);
-        border-bottom: solid 3px $primary;
+        box-shadow: 0 2px 8px rgba($black, .06), 0 1px 3px rgba($black, .04);
+        border-bottom: none;
+        border-radius: $softness;
         text-align: left;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba($black, .1), 0 4px 10px rgba($black, .06);
+        }
     }
 
     .course-card-img {
@@ -221,7 +213,8 @@ body#page-site-index {
     }
 
     .card-img-top {
-        border: 1px solid $gray-400;
+        border: none;
+        border-radius: 0;
     }
 
     .card-title {

@@ -107,13 +107,6 @@ body.pagelayout-incourse,
 body.format-topics.path-user {
     #page-content {
         @extend %border-frequency;
-        &:before {
-            height: 1rem;
-            top: -1rem;
-        }
-        &:after {
-            height: 0.15rem;
-        }
         #region-main {
             padding: 2rem;
         }
@@ -152,8 +145,9 @@ body.pagelayout-course {
     }
     .course-content li.section {
         background-color: rgb(255, 255, 255);
-        margin-bottom: 1rem;
-        padding: 0.5rem;
+        margin-bottom: 1.25rem;
+        padding: 1rem;
+        border-radius: $softness;
     }
 }
 
@@ -165,7 +159,7 @@ body:not(#page-course-view-weeks, #page-course-view-topics, #page-course-view-re
 }
 
 body.pagelayout-course .section {
-    padding: 0.5rem !important;
+    padding: 1rem !important;
 }
 
 // For Gradebook report.
