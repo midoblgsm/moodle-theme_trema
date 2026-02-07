@@ -220,22 +220,24 @@
         .navigation .nav-link {
             color: choose-contrast-color($header-bg-color);
             border-top: 3px solid transparent;
-            transition: all ease-in 300ms;
-            padding-top: 0.5em;
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+            padding: 0.5em 0.75em;
+            border-radius: $softness;
             &.active {
-                font-weight: normal;
+                font-weight: 500;
                 color: choose-contrast-color($header-bg-color);
+                background-color: rgba(choose-contrast-color($header-bg-color), 0.08);
+                border-top: none;
                 &:focus,
                 &:hover {
-                    color: $dark;
+                    color: choose-contrast-color($header-bg-color);
                 }
             }
             &:focus:not(.active),
             &:hover:not(.active) {
-                border-bottom: 3px solid #7a7a7a;
-                &:hover {
-                    color: $dark;
-                }
+                background-color: rgba(choose-contrast-color($header-bg-color), 0.05);
+                border-bottom: none;
+                color: choose-contrast-color($header-bg-color);
             }
         }
         padding-top: 2px;
@@ -288,15 +290,18 @@
 #page .secondary-navigation {
     .navigation .nav-link {
         color: fix-color-contrast($primary);
-        border-top: 3px solid transparent;
         text-decoration: none;
-        transition: all ease-in 100ms;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        border-radius: $softness;
+        padding: 0.4em 0.75em;
+
         &.active {
-            font-weight: normal;
+            font-weight: 500;
             color: $dark;
+            background-color: rgba($primary, 0.08);
         }
         &:hover:not(.active) {
-            border-bottom: 3px solid #7a7a7a;
+            background-color: rgba($primary, 0.05);
         }
     }
 }

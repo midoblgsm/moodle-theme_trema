@@ -41,39 +41,75 @@ body#page-site-index {
     .frontpage-banner {
         position: relative;
         min-height: calc(#{$banner-height} - 4em);
+        max-height: 700px;
         background-attachment: scroll, fixed;
         background-position: center center;
         background-size: cover;
         color: $white;
+        display: grid;
+        place-items: center;
+
+        // Gradient overlay for better text readability.
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba($primary, 0.55) 0%,
+                rgba($secondary, 0.4) 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
 
         #frontpage-banner-content {
-            position: absolute;
-            top: calc(#{$banner-height} / 2);
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
+            z-index: 2;
             text-align: $banner-text-align;
             width: if($banner-text-align == 'center', auto, 80%);
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 0.6s ease-out both;
 
             h2 {
-                border-bottom: solid 1px rgba($banner-font-color, 0.5);
+                border-bottom: none;
                 color: $banner-font-color;
-                font-size: 2.5rem;
-                font-weight: bold;
+                font-size: 3rem;
+                font-weight: 700;
                 font-family: $banner-title-font-family;
                 text-transform: $banner-title-transform;
                 letter-spacing: $banner-title-spacing;
-                line-height: 3rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             }
 
             .h3 {
-                font-weight: 300;
+                font-weight: 400;
                 color: $banner-font-color;
-                font-size: 1.5rem;
-                line-height: 2rem;
+                font-size: 1.25rem;
+                line-height: 1.6;
                 display: block;
+                margin-bottom: 2rem;
+                opacity: 0.9;
             }
-            .btn .btn-primary {
-                box-shadow: rgba(51, 51, 51, 0.6) 5px 8px 9px;
+
+            .btn {
+                padding: 0.75rem 2rem;
+                font-weight: 600;
+                font-size: 1rem;
+                border-radius: 2rem;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
             }
         }
     }
@@ -106,15 +142,16 @@ body#page-site-index {
         (max-height: 469px) {
         #frontpage-banner #frontpage-banner-content,
         .frontpage-banner-content {
-            max-width: 80%;
+            max-width: 90%;
             padding: 1.5rem;
             h2 {
-                font-size: 2.3rem;
-                letter-spacing: 0.2rem;
+                font-size: 2rem;
+                letter-spacing: 0;
             }
 
             .h3 {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
             }
         }
 
@@ -142,10 +179,19 @@ body#page-site-index {
                 padding: 3rem 2.5rem 2.5rem;
                 border-top: 1px solid $gray-200;
                 border-bottom: 1px solid $gray-200;
-                transition: background-color 0.2s ease;
+                transition: background-color 0.25s ease, transform 0.25s ease;
+                animation: fadeInUp 0.5s ease-out both;
+
+                // Staggered entrance per card.
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: #{$i * 0.08}s;
+                    }
+                }
 
                 &:hover {
-                    background-color: rgba($primary, 0.02);
+                    background-color: rgba($primary, 0.03);
+                    transform: translateY(-2px);
                 }
             }
 
@@ -250,27 +296,33 @@ body#page-site-index {
 
         .frontpage-banner-content {
             position: absolute;
-            top: calc(#{$banner-height} / 2);
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: $banner-text-align;
             width: if($banner-text-align == 'center', auto, 80%);
+            max-width: 800px;
+            z-index: 2;
+            animation: fadeInUp 0.6s ease-out both;
+
             h2 {
-                border-bottom: solid 1px rgba($banner-font-color, 0.5);
+                border-bottom: none;
                 color: $banner-font-color;
-                font-size: 2.5rem;
+                font-size: 3rem;
                 font-weight: 700;
                 font-family: $banner-title-font-family;
                 text-transform: $banner-title-transform;
                 letter-spacing: $banner-title-spacing;
-                line-height: 3rem;
+                line-height: 1.2;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             }
             .h3 {
-                font-weight: 300;
+                font-weight: 400;
                 color: $banner-font-color;
-                font-size: 1.5rem;
-                line-height: 2rem;
+                font-size: 1.25rem;
+                line-height: 1.6;
                 display: block;
+                opacity: 0.9;
             }
         }
         .carousel-control-prev,

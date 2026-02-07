@@ -1,6 +1,7 @@
 .drawer {
     padding: 0;
     background: $drawer-bg-color;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     .drawerheader {
         .icon {
@@ -9,7 +10,7 @@
     }
 
     nav.list-group {
-        border-top: 1px solid #444;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: 0.5rem;
 
         &:first-child {
@@ -21,7 +22,8 @@
             border: none;
             color: choose-contrast-color($drawer-bg-color);
             background-color: transparent;
-            transition: all 0.5s ease;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            border-radius: $softness;
 
             .icon {
                 font-size: 20px;
@@ -35,7 +37,7 @@
             &:hover,
             &:focus {
                 color: lighten($primary, 30%);
-                background-color: rgba($primary, 0.05);
+                background-color: rgba($primary, 0.08);
             }
         }
     }

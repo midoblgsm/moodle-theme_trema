@@ -1,32 +1,44 @@
-// Login page - left-align login form.
+// ============================================================
+// Login page — modern split-screen layout.
+// ============================================================
+
 body#page-login-index {
 
     .col-xl-6.col-sm-8 {
         min-width: 100%;
     }
 
-    #region-main {
-        padding-top: 0;
-        background-color: $white;
-        height: 100vh;
-    }
-
+    // Full-height split layout.
     #page-wrapper {
         position: relative;
         min-height: 100vh;
         height: auto;
+        display: grid;
+
         .lang-menu .dropdown-menu {
             left: 0;
             top: 65px;
         }
     }
 
+    #region-main {
+        padding-top: 0;
+        background-color: transparent;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     #page {
         padding-top: 0 !important;
         background: none;
+        margin-top: 0;
+        width: 100%;
+
         #card-login,
         #card-login-instructions {
-            margin-top: 50px;
+            margin-top: 0;
         }
 
         #region-main-box {
@@ -45,10 +57,10 @@ body#page-login-index {
     }
 
     #page-content {
-        max-width: 550px;
-        margin: if($login-box-align == 'center', 0 auto, 0);
-        margin-left: if($login-box-align == 'left', 0, auto);
-        align-items: if($login-box-align == 'center', center, normal);
+        max-width: 480px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem;
     }
 
     #page-footer {
@@ -56,54 +68,160 @@ body#page-login-index {
     }
 
     .card {
-        @extend %border-frequency;
+        border: none;
+        border-radius: $softness;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
     }
 
     .card-header {
         background-color: transparent;
+        border-bottom: none;
     }
 
+    // ---- Style: Background Image (with frosted glass) ----
     &.style-image {
         #page-wrapper {
             background-image: url($login-backgroundimage);
-            background-position: top center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
+
+            // Gradient overlay.
+            &::before {
+                content: '';
+                position: fixed;
+                inset: 0;
+                background: linear-gradient(
+                    135deg,
+                    rgba($primary, 0.6) 0%,
+                    rgba($secondary, 0.4) 100%
+                );
+                z-index: 0;
+            }
+        }
+
+        #page {
+            position: relative;
+            z-index: 1;
+        }
+
+        #page-content {
+            // Frosted glass card.
+            background: rgba($white, 0.88);
+            backdrop-filter: blur(16px) saturate(1.5);
+            -webkit-backdrop-filter: blur(16px) saturate(1.5);
+            border-radius: calc(#{$softness} * 2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            padding: 2.5rem 2rem;
+        }
+
+        .card {
+            background: transparent;
+            box-shadow: none;
         }
     }
 
+    // ---- Style: No image (clean white) ----
     &.style-none {
         #page-wrapper {
             background-image: none;
+            background-color: $body-bg-color;
+        }
+
+        #page-content {
+            background: $white;
+            border-radius: calc(#{$softness} * 2);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            padding: 2.5rem 2rem;
+        }
+
+        .card {
+            background: transparent;
+            box-shadow: none;
         }
     }
 
+    // ---- Login form styles ----
     .loginform {
         h1.login-heading {
-            font-size: 1.5rem !important;
-            line-height: 2.5rem;
+            font-size: 1.75rem !important;
+            line-height: 1.3;
             text-align: center;
-            margin: ($spacer * 3) 0 ($spacer * 3) 0;
-            color: $black;
+            margin: 1.5rem 0 2rem;
+            color: $gray-900;
+            font-weight: 700;
+        }
+
+        .login-divider {
+            border-top: 1px solid $gray-200;
+            margin: 1.5rem 0;
+        }
+
+        .login-form-username,
+        .login-form-password {
+            .form-control-lg {
+                border-radius: $softness;
+                border: 1.5px solid $gray-300;
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+                &:focus {
+                    border-color: $primary;
+                    box-shadow: 0 0 0 3px rgba($primary, 0.15);
+                }
+            }
+        }
+
+        .login-form-submit .btn {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: $softness;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba($primary, 0.3);
+            }
         }
 
         .login-identityprovider-btn {
             background-color: $white !important;
-            border: 1px solid $gray-600 !important;
-            color: $black !important;
-            margin: 0 !important;
+            border: 1.5px solid $gray-300 !important;
+            color: $gray-800 !important;
+            margin: 0.25rem 0 !important;
+            border-radius: $softness;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                border-color: $primary !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+
+            img {
+                flex-shrink: 0;
+            }
         }
+
         .login-identityprovider-btn,
         .btn-secondary {
             white-space: normal;
             height: auto;
-            line-height: 1.3rem;
-            padding: 10px 20px;
+            line-height: 1.4;
+            padding: 0.625rem 1.25rem;
         }
         .login-form-password .toggle-sensitive-wrapper {
             input[type="password"] {
-                border-radius: .4rem 0 0 .4rem;
+                border-radius: $softness 0 0 $softness;
             }
             .toggle-sensitive-btn {
                 box-shadow: none;
@@ -121,6 +239,19 @@ body#page-login-index {
 
     button.btn.btn-link.btn-cookie {
         text-decoration: $links-decoration;
+        font-size: 0.875rem;
+        color: $gray-500;
+    }
+}
+
+// ---- Mobile: compact layout ----
+@media (max-width: 768px) {
+    body#page-login-index {
+        &.style-image #page-content,
+        &.style-none #page-content {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
     }
 }
 

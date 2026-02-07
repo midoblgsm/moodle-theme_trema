@@ -1,3 +1,35 @@
+// ============================================================
+// Keyframe animations
+// ============================================================
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+// Respect user motion preferences.
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+// ============================================================
 // Auto-select colours, usually the foreground based on the background colour.
 $header-color: choose-contrast-color($header-bg-color);
 $footer-color: choose-contrast-color($footer-bg-color);
@@ -351,4 +383,28 @@ body#page-contentbank {
     body #page h1 {
         font-size: calc(0.9975rem + 1.17vw);
     }
+}
+
+// ============================================================
+// Micro-interactions
+// ============================================================
+
+// Subtle entrance animation for main content.
+#region-main {
+    animation: fadeIn 0.35s ease-out;
+}
+
+// Smooth link hover transitions globally.
+body #page a {
+    transition: color 0.2s ease;
+}
+
+// Smooth nav-link transitions.
+.nav-link {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+// Smooth list-group-item transitions.
+.list-group-item {
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
