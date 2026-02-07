@@ -1,30 +1,30 @@
-// Bootstrap variables.
+// Bootstrap variables - Lumiere Design System.
 
 // Prefix for all CSS variables
 $prefix: bs- !default;
 
 $white:    white !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #868e96 !default;
-$gray-700: #495057 !default;
-$gray-800: #373a3c !default;
-$gray-900: #212529 !default;
+$gray-100: #f8fafc !default; // Lumiere background
+$gray-200: #f1f5f9 !default; // Lumiere secondary
+$gray-300: #e2e8f0 !default; // Lumiere border
+$gray-400: #cbd5e1 !default;
+$gray-500: #64748b !default; // Lumiere muted-foreground
+$gray-600: #475569 !default;
+$gray-700: #334155 !default;
+$gray-800: #1e293b !default;
+$gray-900: #0f172a !default; // Lumiere foreground
 $black:    black !default;
 
-$blue:    #3097d1 !default;
-$indigo:  #330098 !default;
-$purple:  #800080 !default;
-$pink:    #e83e8c !default;
-$red:     #ad3e3c !default;
-$orange:  #cd4c00 !default;
-$yellow:  #f0d04e !default;
-$green:   #26872f !default;
-$teal:    #20c997 !default;
-$cyan:    #006e86 !default;
+$blue:    #2563eb !default; // Lumiere primary indigo
+$indigo:  #4f46e5 !default;
+$purple:  #7c3aed !default;
+$pink:    #ec4899 !default;
+$red:     #ef4444 !default; // Lumiere danger
+$orange:  #f97316 !default;
+$yellow:  #f59e0b !default; // Lumiere warning (amber)
+$green:   #10b981 !default; // Lumiere success (emerald)
+$teal:    #14b8a6 !default;
+$cyan:    #06b6d4 !default; // Lumiere info
 
 $primary:       $blue !default;
 $secondary:     $gray-800 !default;
@@ -32,52 +32,125 @@ $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         $gray-200 !default;
-$dark:          $gray-800 !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
 
 // Options.
 $enable-rounded: true !default;
 
 // Body.
-$body-color: $gray-800 !default;
-$body-bg-color: #f5f7fa !default;
+$body-color: $gray-900 !default;
+$body-bg-color: $gray-100 !default;
 
-// Fonts.
-$font-size-base: 1rem !default;
+// Typography.
+$font-size-base: 0.9375rem !default; // 15px
+$font-size-sm: 0.8125rem !default;   // 13px
+$font-size-lg: 1.125rem !default;    // 18px
 $headings-font-weight: 600 !default;
+$headings-line-height: 1.3 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 600 !default;
+$line-height-base: 1.6 !default;
+
+// Border radius - Lumiere rounded design.
+$border-radius:      0.75rem !default;
+$border-radius-lg:   1rem !default;
+$border-radius-sm:   0.5rem !default;
+$border-radius-pill: 50rem !default;
+
+// Shadows - Lumiere shadow system.
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow:    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !default;
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !default;
+
+// Transitions.
+$transition-base: all 0.2s ease-in-out !default;
 
 // Navbar.
 $navbar-dark-hover-color: rgba($white, 1) !default;
 $navbar-light-hover-color: rgba($black, .9) !default;
 $navbar-dark-color: $white;
 $navbar-light-color: $black;
+$navbar-light-color-alt: $gray-600 !default;
+$navbar-light-hover-color-alt: $gray-900 !default;
+$navbar-light-active-color: $primary !default;
+$navbar-light-bg: #ffffff !default;
 
+// Links.
+$link-color: $primary !default;
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;
 
 // Breadcrumbs.
-$breadcrumb-padding-y: .25rem !default;
+$breadcrumb-padding-y: .5rem !default;
 $breadcrumb-padding-x: 0 !default;
 $breadcrumb-item-padding: .5rem !default;
 $breadcrumb-margin-bottom: 0 !default;
 $breadcrumb-bg: transparent !default;
 $breadcrumb-divider: "/" !default;
 $breadcrumb-divider-rtl: "/" !default;
+$breadcrumb-active-color: $gray-500 !default;
+$breadcrumb-divider-color: $gray-400 !default;
 
 $course-content-maxwidth: 1280px !default;
 
 // Alerts.
 $alert-border-width: 0 !default;
 
-// Cards.
+// Cards - Lumiere borderless card design.
 $card-group-margin: .25rem !default;
 $coursecards-bg-color: $white !default;
+$card-bg: #ffffff !default;
+$card-border-color: transparent !default;
+$card-border-radius: $border-radius-lg !default;
+$card-spacer-y: 1.25rem !default;
+$card-spacer-x: 1.5rem !default;
+$card-cap-bg: transparent !default;
+$card-cap-color: $gray-900 !default;
+
+// Buttons - Lumiere button design.
+$btn-border-radius:    $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+$btn-padding-y: 0.625rem !default;
+$btn-padding-x: 1.25rem !default;
+$btn-font-weight: 500 !default;
+$btn-font-size: 0.875rem !default;
+
+// Forms / Inputs.
+$input-bg: #ffffff !default;
+$input-border-color: $gray-300 !default;
+$input-border-radius: $border-radius !default;
+$input-focus-border-color: $primary !default;
+$input-focus-box-shadow: 0 0 0 3px rgba($blue, 0.15) !default;
+$input-padding-y: 0.625rem !default;
+$input-padding-x: 1rem !default;
+
+// Dropdown.
+$dropdown-border-color: $gray-300 !default;
+$dropdown-border-radius: $border-radius !default;
+$dropdown-box-shadow: $box-shadow-lg !default;
+$dropdown-link-active-bg: $gray-200 !default;
+
+// Badges.
+$badge-border-radius: $border-radius-sm !default;
+$badge-font-weight: 500 !default;
+$badge-padding-y: 0.35em !default;
+$badge-padding-x: 0.65em !default;
+
+// Progress bars.
+$progress-height: 0.5rem !default;
+$progress-border-radius: 1rem !default;
+$progress-bg: $gray-200 !default;
+$progress-bar-bg: $primary !default;
 
 // Custom settings.
 
-$body-font-size: 1rem !default;
-$body-font-family: 'Lato' !default;
-$banner-title-font-family: 'Lato' !default;
-$h1-font-family: 'Lato' !default;
-$hx-font-family: 'Lato' !default;
+$body-font-size: 0.9375rem !default;
+$body-font-family: 'Inter' !default;
+$banner-title-font-family: 'Outfit' !default;
+$h1-font-family: 'Outfit' !default;
+$hx-font-family: 'Outfit' !default;
 
 $sitename-font-scale: 1;
 
@@ -90,7 +163,7 @@ $login-box-align: 'left' !default;
 $banner-height: 70vh;
 
 $links-decoration: none !default; // Values: underline or none. Does not affect navigation or buttons.
-$links-color: #114b88 !default; // Does not affect navigation or buttons.
+$links-color: $primary !default;
 
 $nav-align: left !default;
 
@@ -100,11 +173,11 @@ $editmodeon-bg-color: $secondary !default;
 $account-bg: rgba(255, 255, 255, 0.8) !default;
 $drawer-color: $body-color !default;
 
-$softness: 0.5rem !default;
+$softness: $border-radius !default;
 
 $h1: 2rem !default;
-$h2: 1.625rem !default;
-$h3: 1.375rem !default;
+$h2: 1.5rem !default;
+$h3: 1.25rem !default;
 $h4: 1.125rem !default;
 $h5: 1rem !default;
 $h6: 0.875rem !default;

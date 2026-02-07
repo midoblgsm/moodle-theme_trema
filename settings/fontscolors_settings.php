@@ -42,7 +42,7 @@ $page->add($setting);
 $name = 'theme_trema/primarycolor';
 $title = get_string('primarycolor', $themename);
 $description = get_string('primarycolor_desc', $themename);
-$default = '#1c6ca3';
+$default = '#2563eb';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -60,7 +60,7 @@ $page->add($setting);
 $name = 'theme_trema/bodybackgroundcolor';
 $title = get_string('bodybackgroundcolor', $themename);
 $description = get_string('bodybackgroundcolor_desc', $themename);
-$default = '#f1f1f1';
+$default = '#f8fafc';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -98,7 +98,7 @@ $page->add($setting);
 $name = 'theme_trema/drawerbgcolor';
 $title = get_string('drawerbgcolor', $themename);
 $description = get_string('drawerbgcolor_desc', $themename);
-$default = '$gray-200';
+$default = '$white';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -107,7 +107,7 @@ $page->add($setting);
 $name = 'theme_trema/footerbgcolor';
 $title = get_string('footerbgcolor', $themename);
 $description = get_string('footerbgcolor_desc', $themename);
-$default = '$gray-800';
+$default = '$white';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -131,6 +131,7 @@ $fonts = [
     'Inter, sans-serif' => 'Inter',
     'Lato, sans-serif' => 'Lato',
     'Montserrat, sans-serif' => 'Montserrat',
+    '"Outfit", sans-serif' => 'Outfit',
     '"NotoSans", sans-serif' => 'NotoSans',
     '"OpenSans", sans-serif' => 'OpenSans',
     '"PlayfairDisplay", serif' => 'PlayfairDisplay',
@@ -144,7 +145,7 @@ $fonts = [
 $name = 'theme_trema/sitefont';
 $title = get_string('sitefont', $themename);
 $description = get_string('sitefont_desc', $themename);
-$default = 'Lato, sans-serif';
+$default = 'Inter, sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -153,7 +154,7 @@ $page->add($setting);
 $name = 'theme_trema/bannertitlesfont';
 $title = get_string('bannertitlesfont', $themename);
 $description = get_string('bannertitlesfont_desc', $themename);
-$default = 'Lato, sans-serif';
+$default = '"Outfit", sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -162,7 +163,7 @@ $page->add($setting);
 $name = 'theme_trema/h1font';
 $title = get_string('h1font', $themename);
 $description = get_string('h1font_desc', $themename);
-$default = 'Lato, sans-serif';
+$default = '"Outfit", sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -171,7 +172,7 @@ $page->add($setting);
 $name = 'theme_trema/hxfont';
 $title = get_string('hxfont', $themename);
 $description = get_string('hxfont_desc', $themename);
-$default = 'Lato, sans-serif';
+$default = '"Outfit", sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

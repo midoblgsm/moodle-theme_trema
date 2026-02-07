@@ -38,6 +38,9 @@ function theme_trema_get_pre_scss($theme) {
 
     $scss = '';
 
+    // Load Outfit font from Google Fonts (used for headings in Lumiere design).
+    $scss .= "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');\n";
+
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/defaultvariables.scss");
 
     $configurable = [
@@ -120,6 +123,7 @@ function theme_trema_get_pre_scss($theme) {
         '"EBGaramond", sans-serif' => 'EBGaramond',
         'Inter, sans-serif' => 'Inter',
         'Lato, sans-serif' => 'Lato',
+        '"Outfit", sans-serif' => 'Outfit',
         'Montserrat, sans-serif' => 'Montserrat',
         '"NotoSans", sans-serif' => 'NotoSans',
         '"OpenSans", sans-serif' => 'OpenSans',
@@ -248,8 +252,8 @@ function theme_trema_get_pre_scss($theme) {
     // Other settings.
     // ....
 
-    // Softness: Rounding some corners.
-    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '0.5rem' : '0') . ";\n";
+    // Softness: Rounding some corners (Lumiere uses 0.75rem).
+    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '0.75rem' : '0') . ";\n";
 
     // ....
     // Prepend pre-scss.

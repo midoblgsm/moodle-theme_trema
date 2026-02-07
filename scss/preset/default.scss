@@ -29,3 +29,5 @@
 @import "trema/noprint";
 @import "trema/plugins";
 @import "trema/darkmode";
+// Import Lumiere design system overrides (must be last to override all existing styles).
+@import "trema/lumiere";
